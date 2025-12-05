@@ -4,6 +4,8 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 //
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
+import { flexStyles } from "@/styles/flex";
+import { textStyles } from "@/styles/text";
 
 export const AppBar: React.FC = () => {
   return (
@@ -18,6 +20,7 @@ export const AppBar: React.FC = () => {
             size={SIZES.icon}
             color={COLORS.icon}
           />
+          <View style={sx.indicator} />
         </Pressable>
         <Image
           source={require("@/assets/images/my-avatar.png")}
@@ -37,35 +40,35 @@ const sx = StyleSheet.create({
     backgroundColor: COLORS.white,
     paddingHorizontal: 16,
     height: SIZES.appBarContainer,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    ...flexStyles.rowCenterBetween,
     gap: 8,
   },
   leftContent: {
-    flexDirection: "row",
-    alignItems: "center",
+    ...flexStyles.rowCenterStart,
     gap: 8,
   },
   rightContent: {
-    flexDirection: "row",
-    alignItems: "center",
+    ...flexStyles.rowCenterStart,
     gap: 8,
   },
-  // title medium
   title: {
     color: COLORS.black,
-    fontWeight: "500",
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: 0.15,
+    ...textStyles.titleMedium,
   },
   iconContainer: {
     // borderWidth: 1,
     // borderColor: "red",
     width: SIZES.iconContainer,
     height: SIZES.iconContainer,
-    alignItems: "center",
-    justifyContent: "center",
+    ...flexStyles.centerCenter,
+  },
+  indicator: {
+    backgroundColor: "red",
+    borderRadius: 8,
+    width: 8,
+    height: 8,
+    position: "absolute",
+    top: 15,
+    right: 15,
   },
 });

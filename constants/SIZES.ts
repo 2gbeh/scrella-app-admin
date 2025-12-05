@@ -5,6 +5,11 @@ export const SIZES = {
   appBarSearchContainer: 56,
   appBarAvatar: 32,
   appBarAvatarText: 16,
-  listAvatar: 40,
-  listAvatarText: 18,
+  listItemContainer: 56,
+  listItemContainer2: 72,
+  listItemContainer3: 88,
+  listItemAvatar: 40,
+  listItemAvatarText: 18,
+  listItemTrailingIconContainer: 24,
+  listItemTrailingIcon: 20,
 }
