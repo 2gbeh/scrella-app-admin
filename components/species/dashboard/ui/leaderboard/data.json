@@ -1,0 +1,32 @@
+[
+  {
+    "name": "iOS",
+    "units": 1024,
+    "revenue": 5120000,
+    "color": "#000000"
+  },
+  {
+    "name": "Android",
+    "units": 1580,
+    "revenue": 4740000,
+    "color": "#3DDC84"
+  },
+  {
+    "name": "Windows",
+    "units": 2140,
+    "revenue": 8560000,
+    "color": "#0078D4"
+  },
+  {
+    "name": "macOS",
+    "units": 1200,
+    "revenue": 6000000,
+    "color": "#000000"
+  },
+  {
+    "name": "Linux",
+    "units": 350,
+    "revenue": 1050000,
+    "color": "#f7be0f"
+  }
+]

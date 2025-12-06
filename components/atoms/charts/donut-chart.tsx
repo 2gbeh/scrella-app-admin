@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export const ListBarChart: React.FC = () => {
+export const DonutChart: React.FC = () => {
   return (
     <View>
-      <Text>ListBarChart</Text>
+      <Text>DonutChart</Text>
     </View>
   );
 };

@@ -33,6 +33,10 @@ export const ListItem: React.FC = () => {
 };
 
 const sx = StyleSheet.create({
+  __: {
+    borderWidth: 1,
+    borderColor: "red",
+  },
   container: {
     backgroundColor: COLORS.white,
     paddingHorizontal: 16,
@@ -57,8 +61,6 @@ const sx = StyleSheet.create({
     gap: 16,
   },
   textContainer: {
-    // borderWidth: 1,
-    // borderColor: "red",
     flex: 1,
   },
   titleWrapper: {

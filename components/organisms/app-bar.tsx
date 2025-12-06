@@ -36,6 +36,10 @@ export const AppBar: React.FC = () => {
 };
 
 const sx = StyleSheet.create({
+  __: {
+    borderWidth: 1,
+    borderColor: "red",
+  },
   container: {
     backgroundColor: COLORS.white,
     paddingHorizontal: 16,
@@ -56,8 +60,6 @@ const sx = StyleSheet.create({
     ...textStyles.titleMedium,
   },
   iconContainer: {
-    // borderWidth: 1,
-    // borderColor: "red",
     width: SIZES.iconContainer,
     height: SIZES.iconContainer,
     ...flexStyles.centerCenter,

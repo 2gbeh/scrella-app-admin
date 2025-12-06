@@ -33,6 +33,10 @@ export const Header: React.FC = () => {
 };
 
 const sx = StyleSheet.create({
+  __: {
+    borderWidth: 1,
+    borderColor: "red",
+  },
   container: {
     backgroundColor: COLORS.white,
     paddingHorizontal: 4,
@@ -40,13 +44,9 @@ const sx = StyleSheet.create({
     ...flexStyles.rowCenterBetween,
   },
   leftContent: {
-    // borderWidth: 1,
-    // borderColor: "red",
     ...flexStyles.rowCenterStart,
   },
   rightContent: {
-    // borderWidth: 1,
-    // borderColor: "red",
     ...flexStyles.rowCenterStart,
   },
   title: {
@@ -54,8 +54,6 @@ const sx = StyleSheet.create({
     ...textStyles.titleMedium,
   },
   iconContainer: {
-    // borderWidth: 1,
-    // borderColor: "red",
     width: SIZES.iconContainer,
     height: SIZES.iconContainer,
     ...flexStyles.centerCenter,
