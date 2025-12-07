@@ -1,38 +1,10 @@
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-//
+import { StyleSheet } from "react-native";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
 
-export const ListItem: React.FC = () => {
-  return (
-    <View style={sx.container}>
-      <View style={sx.avatar}>
-        <Text style={sx.avatarText}>A</Text>
-      </View>
-      <View style={sx.rightContent}>
-        <View style={sx.textContainer}>
-          <View style={sx.titleWrapper}>
-            <Text style={sx.title}>Headline</Text>
-            <Text style={sx.subtitle}>100+</Text>
-          </View>
-          <Text style={sx.description}>Supporting text</Text>
-        </View>
-        {/* <Pressable style={sx.iconContainer}>
-          <FontAwesome6
-            name="caret-right"
-            size={SIZES.listItemTrailingIcon}
-            color={COLORS.icon}
-          />
-        </Pressable> */}
-      </View>
-    </View>
-  );
-};
-
-const sx = StyleSheet.create({
+export const listItemStyles = StyleSheet.create({
   __: {
     borderWidth: 1,
     borderColor: "red",
@@ -55,7 +27,7 @@ const sx = StyleSheet.create({
     color: COLORS.primaryDark,
     ...textStyles.titleMedium,
   },
-  rightContent: {
+  content: {
     ...flexStyles.rowCenterBetween,
     flex: 1,
     gap: 16,

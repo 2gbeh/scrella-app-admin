@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useRouter, RelativePathString } from "expo-router";
+import { useRouter, Href } from "expo-router";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 //
 import { flexStyles } from "@/styles/flex.style";
@@ -8,7 +8,7 @@ import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 
 interface Props {
-  history: RelativePathString;
+  history: Href;
 }
 
 export const Header: React.FC<Props> = ({ history }) => {
@@ -48,7 +48,7 @@ const sx = StyleSheet.create({
     borderColor: "red",
   },
   container: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.background,
     paddingHorizontal: 4,
     height: SIZES.appBarContainer,
     ...flexStyles.rowCenterBetween,

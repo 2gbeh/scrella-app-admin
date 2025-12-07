@@ -1,18 +1,20 @@
-import { useRouter } from "expo-router";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 //
 import { Header } from "@/components/organisms/header";
-import { ListItem } from "@/components/species/customers/ui/list-item";
+import * as ListItem from "@/components/atoms/lists/list-item";
+import * as ListHeader from "@/components/atoms/lists/list-header";
 import { SearchBar } from "@/components/organisms/search-bar";
+import { useDebouncedSearch } from "@/hooks/use-debounced-search";
+import { longDateFormat } from "@/utils";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
-import { longDateFormat } from "@/utils";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
+import { Skeleton } from "@/components/atoms/skeleton";
 
 export default function CustomersScreen() {
-  const router = useRouter();
+  const { searchText, setSearchText, data, loading } = useDebouncedSearch();
 
   return (
     <View style={sx.container}>
@@ -20,26 +22,37 @@ export default function CustomersScreen() {
       <View style={sx.content}>
         <SearchBar />
       </View>
-      <View style={sx.section}>
-        <Text style={sx.title}>{longDateFormat()}</Text>
-        <Pressable style={sx.subtitleWrapper}>
-          <Text style={sx.subtitle}>See all</Text>
-          <FontAwesome6
-            name="chevron-right"
-            size={SIZES.appBarAvatarText}
-            color={COLORS.icon}
-          />
-        </Pressable>
+      <ListHeader.Container title={longDateFormat()}>
+      
+      </ListHeader.Container>
+      <View>
+        <View>
+          <Skeleton h={72} />
+        </View>
+        {data.map((item) => (
+          <ListItem.Container key={item.id}>
+            <ListItem.Avatar alt={item.name} />
+            <ListItem.Content>
+              <ListItem.Article
+                title={item.name}
+                description={item.email.toLowerCase()}
+              />
+              <ListItem.TrailingIcon />
+            </ListItem.Content>
+          </ListItem.Container>
+        ))}
       </View>
-      <ListItem />
-      <ListItem />
     </View>
   );
 }
 
 const sx = StyleSheet.create({
-  __: {},
+  __: {
+    borderWidth: 1,
+    borderColor: "red",
+  },
   container: {
+    backgroundColor: COLORS.background,
     gap: 16,
   },
   content: {

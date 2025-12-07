@@ -39,6 +39,7 @@ export default function RootLayout() {
         >
           <Stack.Screen name="(main)" />
           <Stack.Screen name="settings" options={{ presentation: "modal" }} />
+          <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar backgroundColor={COLORS.background} style="dark" />
       </SafeAreaView>

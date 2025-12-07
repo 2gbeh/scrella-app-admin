@@ -1,26 +1,23 @@
-import { Link } from 'expo-router';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text } from "react-native";
+//
+import { flexStyles } from "@/styles/flex.style";
+import { textStyles } from "@/styles/text.style";
+import { COLORS } from "@/constants/COLORS";
 
 export default function SettingsScreen() {
   return (
-    <View style={styles.container}>
-      <Text>This is a modal</Text>
-      <Link href="/" dismissTo style={styles.link}>
-        <Text >Go to home screen</Text>
-      </Link>
+    <View style={sx.container}>
+      <Text style={sx.heading}>SettingsScreen</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const sx = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
+    ...flexStyles.centered,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+  heading: {
+    color: COLORS.black,
+    ...textStyles.bodyLarge,
   },
 });
