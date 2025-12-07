@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useRouter, RelativePathString } from "expo-router";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 //
 import { flexStyles } from "@/styles/flex.style";
@@ -7,13 +7,20 @@ import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 
-export const Header: React.FC = () => {
+interface Props {
+  history: RelativePathString;
+}
+
+export const Header: React.FC<Props> = ({ history }) => {
   const router = useRouter();
   //
   return (
     <View style={sx.container}>
       <View style={sx.leftContent}>
-        <Pressable onPress={router.back} style={sx.iconContainer}>
+        <Pressable
+          onPress={() => router.push(history)}
+          style={sx.iconContainer}
+        >
           <MaterialCommunityIcons
             name="arrow-left"
             size={SIZES.icon}

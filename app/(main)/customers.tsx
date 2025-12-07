@@ -16,7 +16,7 @@ export default function CustomersScreen() {
 
   return (
     <View style={sx.container}>
-      <Header />
+      <Header history="/" />
       <View style={sx.content}>
         <SearchBar />
       </View>
