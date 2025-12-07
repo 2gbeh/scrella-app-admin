@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 //
-import { flexStyles } from "@/styles/flex";
-import { textStyles } from "@/styles/text";
+import { flexStyles } from "@/styles/flex.style";
+import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
 
 interface Props {

@@ -1,9 +1,10 @@
 import { PropsWithChildren } from "react";
 import { StyleSheet, Text, View } from "react-native";
 //
-import { flexStyles } from "@/styles/flex";
-import { textStyles } from "@/styles/text";
+import { flexStyles } from "@/styles/flex.style";
+import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
+import { shadowMixinStyle } from "@/styles/common.style";
 
 interface Props extends PropsWithChildren {
   title?: string;
@@ -31,16 +32,10 @@ const sx = StyleSheet.create({
   },
   container: {
     backgroundColor: COLORS.white,
-    borderRadius: 8,
+    borderRadius: 12,
     padding: 16,
     gap: 16,
-    // Shadow (iOS)
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    // Shadow (Android)
-    elevation: 4,
+    ...shadowMixinStyle(),
   },
   header: {
     ...flexStyles.rowCenterBetween,

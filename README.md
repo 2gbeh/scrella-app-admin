@@ -7,13 +7,15 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 1. Install dependencies
 
    ```bash
+   rm -rf node_modules package-lock.json
    npm install
    ```
 
 2. Start the app
 
    ```bash
-   npx expo start
+   npm cache clean --force
+   npx expo start -c
    ```
 
 In the output, you'll find options to open the app in a

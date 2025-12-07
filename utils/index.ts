@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-const NAIRA = '₦';
+export const NAIRA = '₦';
 
 // 1,024
 export const moneyFormat = (value?: number | string | null) => {

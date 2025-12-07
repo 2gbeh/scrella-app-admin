@@ -3,8 +3,8 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 //
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
-import { flexStyles } from "@/styles/flex";
-import { textStyles } from "@/styles/text";
+import { flexStyles } from "@/styles/flex.style";
+import { textStyles } from "@/styles/text.style";
 
 export const ListItem: React.FC = () => {
   return (

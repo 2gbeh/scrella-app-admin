@@ -1,11 +1,11 @@
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Image } from "expo-image";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 //
+import { flexStyles } from "@/styles/flex.style";
+import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
-import { flexStyles } from "@/styles/flex";
-import { textStyles } from "@/styles/text";
 
 export const AppBar: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ const sx = StyleSheet.create({
     borderColor: "red",
   },
   container: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.background,
     paddingHorizontal: 16,
     height: SIZES.appBarContainer,
     ...flexStyles.rowCenterBetween,
