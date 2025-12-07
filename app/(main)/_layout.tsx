@@ -18,7 +18,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <FontAwesome6 size={SIZES.icon} name="home" color={color} />
+            <FontAwesome6 size={SIZES.icon} name="house" color={color} />
           ),
         }}
       />

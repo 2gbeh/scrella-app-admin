@@ -20,12 +20,12 @@ export default function CustomersScreen() {
         <SearchBar />
       </View>
       <View style={sx.section}>
-        <Text style={sx.title}>Sun, Dec 7</Text>
+        <Text style={sx.title}>Sun, Dec 7, 2025</Text>
         <Pressable style={sx.subtitleWrapper}>
           <Text style={sx.subtitle}>See all</Text>
           <FontAwesome6
-            name="caret-right"
-            size={SIZES.listItemTrailingIcon}
+            name="chevron-right"
+            size={SIZES.appBarAvatarText}
             color={COLORS.icon}
           />
         </Pressable>
@@ -47,14 +47,15 @@ const sx = StyleSheet.create({
   },
   section: {
     ...flexStyles.rowCenterBetween,
+    paddingHorizontal: 16,
   },
   title: {
     color: COLORS.black,
-    ...textStyles.bodyLarge,
+    ...textStyles.titleMedium,
   },
   subtitle: {
-    color: COLORS.muted,
-    ...textStyles.bodyMedium,
+    color: COLORS.icon,
+    ...textStyles.bodyLarge,
   },
   subtitleWrapper: {
     ...flexStyles.rowCenterStart,

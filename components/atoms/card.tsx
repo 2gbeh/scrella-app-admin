@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
-import { shadowMixinStyle } from "@/styles/common.style";
+import { shadowMixinStyles } from "@/styles/common.style";
 
 interface Props extends PropsWithChildren {
   title?: string;
@@ -35,7 +35,7 @@ const sx = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     gap: 16,
-    ...shadowMixinStyle(),
+    ...shadowMixinStyles(),
   },
   header: {
     ...flexStyles.rowCenterBetween,

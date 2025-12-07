@@ -1,6 +1,6 @@
 import { ViewStyle } from "react-native";
 
-export const shadowMixinStyle = (height = 1) => ({
+export const shadowMixinStyles = (height = 1) => ({
   // Shadow (iOS)
   shadowColor: "#000",
   shadowOffset: { width: 0, height },

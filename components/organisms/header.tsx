@@ -55,6 +55,7 @@ const sx = StyleSheet.create({
   title: {
     color: COLORS.black,
     ...textStyles.titleMedium,
+    fontFamily: "Poppins-Regular",
   },
   iconContainer: {
     width: SIZES.iconContainer,
