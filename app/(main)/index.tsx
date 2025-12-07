@@ -1,15 +1,25 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { StyleSheet, ScrollView, View } from "react-native";
 //
 import { AppBar } from "@/components/organisms/app-bar";
 import { Card } from "@/components/atoms/card";
-import { ClusteredColumnChart } from "@/components/species/dashboard/ui/clustered-column-chart";
-import { DonutChart } from "@/components/species/dashboard/ui/donut-chart";
-import { KpiCards } from "@/components/species/dashboard/ui/kpi-cards";
-import { Leaderboard } from "@/components/species/dashboard/ui/leaderboard";
+import { ClusteredColumnChart } from "@/components/species/dashboard/components/clustered-column-chart";
+import { DonutChart } from "@/components/species/dashboard/components/donut-chart";
 import { Skeleton } from "@/components/atoms/skeleton";
 import { Spinner } from "@/components/atoms/spinner";
 import { COLORS } from "@/constants/COLORS";
+// 
+import { KpiCards } from "@/components/species/dashboard/components/kpi-cards";
+
+const LazyLeaderboard = lazy(() =>
+  import("@/components/species/dashboard/components/leaderboard").then((module) => ({
+    default: () => (
+      <Card title="Operating Systems Insured">
+        <module.Leaderboard />
+      </Card>
+    ),
+  }))
+);
 
 export default function DashboardScreen() {
   return (
@@ -25,9 +35,7 @@ export default function DashboardScreen() {
             <DonutChart />
           </Card>
           <Suspense fallback={<Skeleton h={160} r={12} />}>
-            <Card title="Operating Systems Insured">
-              <Leaderboard />
-            </Card>
+            <LazyLeaderboard />
           </Suspense>
         </View>
       </ScrollView>

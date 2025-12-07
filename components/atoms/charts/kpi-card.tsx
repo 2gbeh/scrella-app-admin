@@ -3,7 +3,7 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 //
 import { textStyles } from "@/styles/text.style";
 import { flexStyles } from "@/styles/flex.style";
-import { shadowMixinStyles } from "@/styles/common.style";
+import { shadowMixinStyles } from "@/styles";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 

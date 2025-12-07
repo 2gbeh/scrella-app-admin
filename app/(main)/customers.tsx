@@ -1,47 +1,33 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { StyleSheet, View } from "react-native";
 //
 import { Header } from "@/components/organisms/header";
-import * as ListItem from "@/components/atoms/lists/list-item";
-import * as ListHeader from "@/components/atoms/lists/list-header";
-import { SearchBar } from "@/components/organisms/search-bar";
+import { SearchBar } from "@/components/molecules/search-bar";
 import { useDebouncedSearch } from "@/hooks/use-debounced-search";
-import { longDateFormat } from "@/utils";
-import { flexStyles } from "@/styles/flex.style";
-import { textStyles } from "@/styles/text.style";
+import { UserDto } from "@/types/user";
 import { COLORS } from "@/constants/COLORS";
-import { SIZES } from "@/constants/SIZES";
-import { Skeleton } from "@/components/atoms/skeleton";
+//
+import { CustomerList } from "@/components/species/customers/components/customers-list";
+import { useCustomersScreen } from "@/components/species/customers/hooks/use-customers-screen";
 
 export default function CustomersScreen() {
-  const { searchText, setSearchText, data, loading } = useDebouncedSearch();
-
+  const {
+    searchText,
+    setSearchText,
+    debouncedText,
+    data,
+    setData,
+    loading,
+    setLoading,
+  } = useDebouncedSearch<UserDto>();
+  useCustomersScreen({ debouncedText, setData, setLoading  });
+  //
   return (
     <View style={sx.container}>
       <Header history="/" />
       <View style={sx.content}>
-        <SearchBar />
+        <SearchBar value={searchText} onChange={setSearchText} />
       </View>
-      <ListHeader.Container title={longDateFormat()}>
-      
-      </ListHeader.Container>
-      <View>
-        <View>
-          <Skeleton h={72} />
-        </View>
-        {data.map((item) => (
-          <ListItem.Container key={item.id}>
-            <ListItem.Avatar alt={item.name} />
-            <ListItem.Content>
-              <ListItem.Article
-                title={item.name}
-                description={item.email.toLowerCase()}
-              />
-              <ListItem.TrailingIcon />
-            </ListItem.Content>
-          </ListItem.Container>
-        ))}
-      </View>
+      <CustomerList data={data} loading={loading} />
     </View>
   );
 }
@@ -53,26 +39,11 @@ const sx = StyleSheet.create({
   },
   container: {
     backgroundColor: COLORS.background,
+    flex: 1,
     gap: 16,
   },
   content: {
     paddingHorizontal: 16,
     gap: 16,
-  },
-  section: {
-    ...flexStyles.rowCenterBetween,
-    paddingHorizontal: 16,
-  },
-  title: {
-    color: COLORS.black,
-    ...textStyles.titleMedium,
-  },
-  subtitle: {
-    color: COLORS.icon,
-    ...textStyles.bodyLarge,
-  },
-  subtitleWrapper: {
-    ...flexStyles.rowCenterStart,
-    gap: 8,
   },
 });

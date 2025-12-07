@@ -32,7 +32,7 @@ export const listItemStyles = StyleSheet.create({
     flex: 1,
     gap: 16,
   },
-  textContainer: {
+  article: {
     flex: 1,
   },
   titleWrapper: {

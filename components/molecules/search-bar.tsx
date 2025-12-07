@@ -1,17 +1,23 @@
-import { useState } from "react";
 import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 //
-import { shadowMixinStyles } from "@/styles/common.style";
+import { shadowMixinStyles } from "@/styles";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 
-export const SearchBar: React.FC = () => {
-  const [searchText, setSearchText] = useState("");
-  const reset = () => setSearchText("");
-  const isDirty = searchText.length > 0;
+interface Props {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+export const SearchBar: React.FC<Props> = ({
+  value = "",
+  onChange = () => undefined,
+}) => {
+  const isDirty = value.length > 0;
+  const handleReset = () => onChange("");
   //
   return (
     <View style={sx.container}>
@@ -22,8 +28,8 @@ export const SearchBar: React.FC = () => {
           color={COLORS.icon}
         />
         <TextInput
-          value={searchText}
-          onChangeText={setSearchText}
+          value={value}
+          onChangeText={onChange}
           placeholder="Search..."
           placeholderTextColor={COLORS.muted}
           inputMode="search"
@@ -34,7 +40,7 @@ export const SearchBar: React.FC = () => {
         />
       </View>
       {isDirty && (
-        <Pressable onPress={reset}>
+        <Pressable onPress={handleReset}>
           <FontAwesome6
             name="xmark"
             size={SIZES.listItemTrailingIcon}

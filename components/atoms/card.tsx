@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
-import { shadowMixinStyles } from "@/styles/common.style";
+import { shadowMixinStyles } from "@/styles";
 
 interface Props extends PropsWithChildren {
   title?: string;

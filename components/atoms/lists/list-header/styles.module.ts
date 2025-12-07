@@ -9,16 +9,8 @@ export const listHeaderStyles = StyleSheet.create({
     borderColor: "red",
   },
   container: {
-    backgroundColor: COLORS.background,
-    gap: 16,
-  },
-  content: {
-    paddingHorizontal: 16,
-    gap: 16,
-  },
-  section: {
     ...flexStyles.rowCenterBetween,
-    paddingHorizontal: 16,
+    padding: 16,
   },
   title: {
     color: COLORS.black,

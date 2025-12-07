@@ -13,17 +13,17 @@ interface ContainerProps extends PropsWithChildren {
 
 export const Container: React.FC<ContainerProps> = ({ children, title }) => {
   return (
-    <View style={sx.section}>
+    <View style={sx.container}>
       <Text style={sx.title}>{title}</Text>
       {children}
     </View>
   );
 };
 
-interface SeeAllProps extends PropsWithChildren {
+interface SeeAllProps {
   label?: string;
   icon?: string;
-  onClick?: VoidFunction;
+  onClick?: () => void;
 }
 
 export const SeeAll: React.FC<SeeAllProps> = ({

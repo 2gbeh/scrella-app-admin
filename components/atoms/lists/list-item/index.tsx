@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { Pressable, Text, View } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 //
+import { Skeleton } from "@/components/atoms/skeleton";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 //
@@ -18,13 +19,15 @@ export const Container: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 interface AvatarProps {
-  alt?: string;
+  alt?: string | null;
 }
 
-export const Avatar: React.FC<AvatarProps> = ({ alt = "N" }) => {
+export const Avatar: React.FC<AvatarProps> = ({ alt }) => {
   return (
     <View style={sx.avatar}>
-      <Text style={sx.avatarText}>{alt.charAt(0).toUpperCase()}</Text>
+      <Text style={sx.avatarText}>
+        {alt ? alt.charAt(0).toUpperCase() : "N"}
+      </Text>
     </View>
   );
 };
@@ -35,8 +38,8 @@ export const Content: React.FC<PropsWithChildren> = ({ children }) => {
 
 interface ArticleProps extends PropsWithChildren {
   title: string;
-  subtitle?: string;
-  description?: string;
+  subtitle?: string | null;
+  description?: string | null;
 }
 
 export const Article: React.FC<ArticleProps> = ({
@@ -46,7 +49,7 @@ export const Article: React.FC<ArticleProps> = ({
   description,
 }) => {
   return (
-    <View style={sx.textContainer}>
+    <View style={sx.article}>
       <View style={sx.titleWrapper}>
         <Text style={sx.title}>{title}</Text>
         {/* TRAILING SUPPORTNG TEXT */}
@@ -63,7 +66,7 @@ export const Article: React.FC<ArticleProps> = ({
 };
 
 interface TrailingIconProps {
-  onClick?: VoidFunction;
+  onClick?: () => void;
 }
 
 export const TrailingIcon: React.FC<TrailingIconProps> = ({
@@ -78,4 +81,19 @@ export const TrailingIcon: React.FC<TrailingIconProps> = ({
       />
     </Pressable>
   );
+};
+
+export const renderSkeleton = (length = 10) => {
+  return Array.from({ length }).map((_, i) => (
+    <View key={i} style={sx.container}>
+      <Skeleton w={40} h={40} r={40} />
+      <View style={sx.content}>
+        <View style={[sx.article, { gap: 8 }]}>
+          <Skeleton w={200} h={15} />
+          <Skeleton w={150} h={10} />
+        </View>
+        <Skeleton w={16} h={16} />
+      </View>
+    </View>
+  ));
 };
