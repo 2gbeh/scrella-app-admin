@@ -1,6 +1,7 @@
 import "react-native-reanimated";
-// import { useEffect } from 'react';
+import { useEffect } from "react";
 import { Stack } from "expo-router";
+import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import {
@@ -8,9 +9,9 @@ import {
   SafeAreaView,
   initialWindowMetrics,
 } from "react-native-safe-area-context";
-// 
+//
 import { COLORS } from "@/constants/COLORS";
-// import { useFonts, Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { FontMappings } from "@/constants/FONTS";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,17 +20,13 @@ export const unstable_settings = {
 };
 
 export default function RootLayout() {
-  // const [fontsLoaded] = useFonts({ Poppins_400Regular });
+  const [loaded] = useFonts(FontMappings);
 
-  // useEffect(() => {
-  //   if (fontsLoaded) {
-  //     SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
+  useEffect(() => {
+    if (loaded) SplashScreen.hideAsync();
+  }, [loaded]);
 
-  // if (!fontsLoaded) {
-  //   return null;
-  // }
+  if (!loaded) return null;
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>

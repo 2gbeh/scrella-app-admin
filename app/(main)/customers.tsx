@@ -7,6 +7,7 @@ import { ListItem } from "@/components/species/customers/ui/list-item";
 import { SearchBar } from "@/components/organisms/search-bar";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
+import { longDateFormat } from "@/utils";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 
@@ -20,7 +21,7 @@ export default function CustomersScreen() {
         <SearchBar />
       </View>
       <View style={sx.section}>
-        <Text style={sx.title}>Sun, Dec 7, 2025</Text>
+        <Text style={sx.title}>{longDateFormat()}</Text>
         <Pressable style={sx.subtitleWrapper}>
           <Text style={sx.subtitle}>See all</Text>
           <FontAwesome6

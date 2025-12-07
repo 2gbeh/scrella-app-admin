@@ -17,11 +17,16 @@ export type FontWeightType =
 
 export type FontFamilyType = Partial<Record<FontWeightType, string>>;
 
-export const FONT = {
-  primary: "RobotoFlex",
+export const FontMappings = {
+  PoppinsRegular: require("@/assets/fonts/Poppins-Regular.ttf"),
+  PoppinsMedium: require("@/assets/fonts/Poppins-Medium.ttf"),
+  PoppinsSemiBold: require("@/assets/fonts/Poppins-SemiBold.ttf"),
+  PoppinsBold: require("@/assets/fonts/Poppins-Bold.ttf"),
 };
 
 export const FONTS = {
-  RobotoFlex: require("@/assets/fonts/RobotoFlex-VariableFont.ttf"),
+  primary400: "PoppinsRegular",
+  primary500: "PoppinsMedium",
+  primary600: "PoppinsSemiBold",
+  primary700: "PoppinsBold",
 };
-

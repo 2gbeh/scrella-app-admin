@@ -1,3 +1,4 @@
+import { FONTS } from "@/constants/FONTS";
 import { StyleSheet } from "react-native";
 
 export const textStyles = StyleSheet.create({
@@ -14,6 +15,7 @@ export const textStyles = StyleSheet.create({
     letterSpacing: 0,
   },
   titleMedium: {
+    fontFamily: FONTS.primary500,
     fontWeight: "500",
     fontSize: 16,
     lineHeight: 24,
