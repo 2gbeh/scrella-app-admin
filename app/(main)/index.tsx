@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView, View } from "react-native";
 //
 import { AppBar } from "@/components/organisms/app-bar";
 import { Card } from "@/components/atoms/card";
-import { ClusteredColumnChart } from "@/components/species/dashboard/components/clustered-column-chart";
+import { ClusteredColumnChart_ } from "@/components/species/dashboard/components/clustered-column-chart";
 import { DonutChart } from "@/components/species/dashboard/components/donut-chart";
 import { Skeleton } from "@/components/atoms/skeleton";
 import { Spinner } from "@/components/atoms/spinner";
@@ -12,10 +12,10 @@ import { COLORS } from "@/constants/COLORS";
 import { KpiCards } from "@/components/species/dashboard/components/kpi-cards";
 
 const LazyLeaderboard = lazy(() =>
-  import("@/components/species/dashboard/components/leaderboard").then((module) => ({
+  import("@/components/species/dashboard/components/leaderboard").then((mod) => ({
     default: () => (
       <Card title="Operating Systems Insured">
-        <module.Leaderboard />
+        <mod.Leaderboard />
       </Card>
     ),
   }))
@@ -29,11 +29,11 @@ export default function DashboardScreen() {
         <View style={sx.content}>
           <KpiCards />
           <Card title="Insured & Claims Trend">
-            <ClusteredColumnChart />
+            <ClusteredColumnChart_ />
           </Card>
-          <Card title="Devices Insured">
+          {/* <Card title="Devices Insured">
             <DonutChart />
-          </Card>
+          </Card> */}
           <Suspense fallback={<Skeleton h={160} r={12} />}>
             <LazyLeaderboard />
           </Suspense>

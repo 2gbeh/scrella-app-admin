@@ -8,7 +8,7 @@ import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 
 interface Props {
-  history: Href;
+  history?: Href;
 }
 
 export const Header: React.FC<Props> = ({ history }) => {
@@ -16,21 +16,23 @@ export const Header: React.FC<Props> = ({ history }) => {
   //
   return (
     <View style={sx.container}>
-      <View style={sx.leftContent}>
-        <Pressable
-          onPress={() => router.push(history)}
-          style={sx.iconContainer}
-        >
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={SIZES.icon}
-            color={COLORS.icon}
-          />
-        </Pressable>
+      <View style={[sx.leftContent, { marginLeft: history ? 0 : 16 }]}>
+        {history ? (
+          <Pressable
+            onPress={() => router.push(history)}
+            style={sx.iconContainer}
+          >
+            <MaterialCommunityIcons
+              name="arrow-left"
+              size={SIZES.icon}
+              color={COLORS.icon}
+            />
+          </Pressable>
+        ) : null}
         <Text style={sx.title}>Customers</Text>
       </View>
       <View style={sx.rightContent}>
-        <Pressable style={sx.iconContainer}>
+        <Pressable>
           <MaterialCommunityIcons
             name="dots-vertical"
             size={SIZES.icon}
@@ -49,7 +51,7 @@ const sx = StyleSheet.create({
   },
   container: {
     backgroundColor: COLORS.background,
-    paddingHorizontal: 4,
+    paddingRight: 16,
     height: SIZES.appBarContainer,
     ...flexStyles.rowCenterBetween,
   },

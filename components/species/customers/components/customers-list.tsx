@@ -1,8 +1,8 @@
 import { View, Text, FlatList, ScrollView } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 //
-import * as ListItem from "@/components/atoms/lists/list-item";
-import * as ListHeader from "@/components/atoms/lists/list-header";
+import * as ListItem from "@/components/molecules/list-builder/list-item";
+import * as ListHeader from "@/components/molecules/list-builder/list-header";
 import { dateUtil } from "@/utils/date.util";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";

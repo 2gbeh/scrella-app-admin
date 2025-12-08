@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 //
 import { Header } from "@/components/organisms/header";
-import { SearchBar } from "@/components/molecules/search-bar";
+import { SearchBar } from "@/components/atoms/search-bar";
 import { useDebouncedSearch } from "@/hooks/use-debounced-search";
 import { UserDto } from "@/types/user";
 import { COLORS } from "@/constants/COLORS";
@@ -23,7 +23,7 @@ export default function CustomersScreen() {
   //
   return (
     <View style={sx.container}>
-      <Header history="/" />
+      <Header />
       <View style={sx.content}>
         <SearchBar value={searchText} onChange={setSearchText} />
       </View>
@@ -40,7 +40,7 @@ const sx = StyleSheet.create({
   container: {
     backgroundColor: COLORS.background,
     flex: 1,
-    gap: 16,
+    // gap: 16,
   },
   content: {
     paddingHorizontal: 16,

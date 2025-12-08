@@ -25,4 +25,9 @@ export const flexStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  rowCenterEvenly: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
 });

@@ -6,15 +6,23 @@ import { flexStyles } from "@/styles/flex.style";
 import { shadowMixinStyles } from "@/styles";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
+import { Spinner } from "../spinner";
 
 interface Props {
   label: string;
   value: string | number;
   icon: string;
   color: string;
+  loading?: boolean;
 }
 
-export const KpiCard: React.FC<Props> = ({ label, value, icon, color }) => {
+export const KpiCard: React.FC<Props> = ({
+  label,
+  value,
+  icon,
+  color,
+  loading,
+}) => {
   return (
     <View style={[sx.container, { backgroundColor: color }]}>
       <View style={sx.iconWrapper}>
@@ -25,7 +33,7 @@ export const KpiCard: React.FC<Props> = ({ label, value, icon, color }) => {
         />
       </View>
       <View style={sx.content}>
-        <Text style={sx.value}>{value}</Text>
+        {loading ? <Spinner size={16} secondary /> : <Text style={sx.value}>{value}</Text>}
         <Text style={sx.label}>{label}</Text>
       </View>
     </View>

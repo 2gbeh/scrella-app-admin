@@ -1,38 +1,22 @@
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 //
 import { KpiCard } from "@/components/atoms/charts/kpi-card";
+import { moneyFormat, sleep } from "@/utils";
 import { flexStyles } from "@/styles/flex.style";
-import { COLORS } from "@/constants/COLORS";
-import { moneyFormat } from "@/utils";
-
-const data = {
-  customers: {
-    name: "Customers",
-    total: 550000,
-    icon: "user-group",
-    color: COLORS.statusBlue,
-  },
-  devices: {
-    name: "Devices",
-    total: 800000,
-    icon: "computer",
-    color: COLORS.statusYellow,
-  },
-  revenue: {
-    name: "Revenue",
-    total: 1350000,
-    icon: "credit-card-alt",
-    color: COLORS.statusPurple,
-  },
-  claims: {
-    name: "Claims",
-    total: 0,
-    icon: "money-check-dollar",
-    color: COLORS.statusRed,
-  },
-};
+//
+import { data } from "./utils";
 
 export const KpiCards: React.FC = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      await sleep();
+      setLoading(false);
+    })();
+  }, []);
+  //
   return (
     <View style={sx.container}>
       <View style={sx.grid}>
@@ -42,6 +26,7 @@ export const KpiCards: React.FC = () => {
             value={data.customers.total.toLocaleString()}
             icon={data.customers.icon}
             color={data.customers.color}
+            loading={loading}
           />
         </View>
         <View style={sx.gridItem}>
@@ -50,6 +35,7 @@ export const KpiCards: React.FC = () => {
             value={data.devices.total.toLocaleString()}
             icon={data.devices.icon}
             color={data.devices.color}
+            loading={loading}
           />
         </View>
       </View>
@@ -60,6 +46,7 @@ export const KpiCards: React.FC = () => {
             value={moneyFormat(data.revenue.total)}
             icon={data.revenue.icon}
             color={data.revenue.color}
+            loading={loading}
           />
         </View>
         <View style={sx.gridItem}>
@@ -68,6 +55,7 @@ export const KpiCards: React.FC = () => {
             value={moneyFormat(data.claims.total)}
             icon={data.claims.icon}
             color={data.claims.color}
+            loading={loading}
           />
         </View>
       </View>
