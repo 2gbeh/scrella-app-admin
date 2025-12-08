@@ -10,7 +10,7 @@ interface Props {
   color?: string;
 }
 
-export const LeaderboardItem: React.FC<Props> = ({ label, value, color }) => {
+export const Leaderboard: React.FC<Props> = ({ label, value, color }) => {
   return (
     <View style={sx.container}>
       <View style={sx.leftContent}>
@@ -33,9 +33,9 @@ const sx = StyleSheet.create({
   },
   indicator: {
     backgroundColor: COLORS.primary,
-    borderRadius: 8,
-    width: 8,
-    height: 8,
+    borderRadius: 10,
+    width: 10,
+    height: 10,
   },
   label: {
     color: COLORS.black,

@@ -25,6 +25,8 @@ export const sx = StyleSheet.create({
   },
   container: {
     ...flexStyles.rowCenterEvenly,
+    flexWrap: "wrap",
+    gap: 16,
   },
   content: {
     ...flexStyles.rowCenterStart,
@@ -32,9 +34,9 @@ export const sx = StyleSheet.create({
   },
   indicator: {
     backgroundColor: COLORS.icon,
-    borderRadius: 12,
-    width: 12,
-    height: 12,
+    borderRadius: 10,
+    width: 10,
+    height: 10,
   },
   label: {
     color: COLORS.icon,

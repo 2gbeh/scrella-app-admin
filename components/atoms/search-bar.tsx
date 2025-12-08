@@ -35,7 +35,6 @@ export const SearchBar: React.FC<Props> = ({
           inputMode="search"
           keyboardType="web-search"
           enterKeyHint="search"
-          autoFocus
           style={sx.input}
         />
       </View>

@@ -19,6 +19,6 @@ export const clusteredColumnChartStyles = StyleSheet.create({
   },
   yAxisLabelRuler: {
     color: '#ddd',
-    paddingLeft: 4,
+    paddingLeft: 8,
   },
 });

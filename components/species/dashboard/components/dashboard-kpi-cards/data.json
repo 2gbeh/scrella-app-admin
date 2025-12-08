@@ -1,0 +1,18 @@
+{
+  "customers": {
+    "name": "Customers",
+    "total": 550000
+  },
+  "devices": {
+    "name": "Devices",
+    "total": 800000
+  },
+  "revenue": {
+    "name": "Revenue",
+    "total": 1350000
+  },
+  "claims": {
+    "name": "Claims",
+    "total": 0
+  }
+}

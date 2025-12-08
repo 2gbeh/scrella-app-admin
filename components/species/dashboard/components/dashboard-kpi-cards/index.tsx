@@ -4,10 +4,11 @@ import { StyleSheet, View } from "react-native";
 import { KpiCard } from "@/components/atoms/charts/kpi-card";
 import { moneyFormat, sleep } from "@/utils";
 import { flexStyles } from "@/styles/flex.style";
+import { COLORS } from "@/constants/COLORS";
 //
-import { data } from "./utils";
+import data from "./data.json";
 
-export const KpiCards: React.FC = () => {
+export const DashboardKpiCards: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,8 +25,8 @@ export const KpiCards: React.FC = () => {
           <KpiCard
             label={data.customers.name}
             value={data.customers.total.toLocaleString()}
-            icon={data.customers.icon}
-            color={data.customers.color}
+            icon="user-group"
+            color={COLORS.statusBlue}
             loading={loading}
           />
         </View>
@@ -33,8 +34,8 @@ export const KpiCards: React.FC = () => {
           <KpiCard
             label={data.devices.name}
             value={data.devices.total.toLocaleString()}
-            icon={data.devices.icon}
-            color={data.devices.color}
+            icon="computer"
+            color={COLORS.statusYellow}
             loading={loading}
           />
         </View>
@@ -44,8 +45,8 @@ export const KpiCards: React.FC = () => {
           <KpiCard
             label={data.revenue.name}
             value={moneyFormat(data.revenue.total)}
-            icon={data.revenue.icon}
-            color={data.revenue.color}
+            icon="credit-card-alt"
+            color={COLORS.statusPurple}
             loading={loading}
           />
         </View>
@@ -53,8 +54,8 @@ export const KpiCards: React.FC = () => {
           <KpiCard
             label={data.claims.name}
             value={moneyFormat(data.claims.total)}
-            icon={data.claims.icon}
-            color={data.claims.color}
+            icon="money-check-dollar"
+            color={COLORS.statusRed}
             loading={loading}
           />
         </View>
