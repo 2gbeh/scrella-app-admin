@@ -3,15 +3,27 @@
     "name": "Scrella Admin",
     "slug": "scrella-app-admin",
     "version": "1.0.0",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "screllaappadmin",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "assetBundlePatterns": ["**/*"],
+    "jsEngine": "hermes",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.hwplabs.scrella",
+      "supportsTablet": true,
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "UIBackgroundModes": ["remote-notification"]
+      }
     },
     "android": {
+      "package": "com.hwplabs.scrella",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#00b39e",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -19,7 +31,14 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "POST_NOTIFICATIONS"
+      ]
     },
     "web": {
       "output": "static",
@@ -54,6 +73,19 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "environment": "development",
+      "apiUrl": "https://api.scrella.com",
+      "eas": {
+        "projectId": "31d600a1-596a-4c6b-b4e2-6797e3a0aff1"
+      }
+    },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/31d600a1-596a-4c6b-b4e2-6797e3a0aff1"
     }
   }
 }

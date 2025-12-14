@@ -18,6 +18,20 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start -c
    ```
 
+3. [Build the app](https://docs.expo.dev/develop/development-builds/create-a-build/)
+
+   ```bash
+   npx expo install expo-dev-client
+   npm install -g eas-cli && eas login (optional)
+   eas build --platform android --profile development (hot reload)
+   eas build --platform android --profile preview (preview)
+   eas build --platform android --profile production (publish)
+   > Would you like to automatically create an EAS project for @2gbeh/scrella-app-admin? ... yes
+   > What would you like your Android application id to be? ... com.hwplabs.scrella
+   > Generate a new Android Keystore? ... yes
+   > Install and run the Android build on an emulator? ... no
+   ```
+
 In the output, you'll find options to open the app in a
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)

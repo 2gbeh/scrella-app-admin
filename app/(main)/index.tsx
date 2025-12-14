@@ -31,10 +31,10 @@ export default function DashboardScreen() {
       <ScrollView style={{ flex: 1 }}>
         <View style={sx.content}>
           <DashboardKpiCards />
-          {/* <DashboardColumnChart />
+          <DashboardColumnChart />
           <Suspense fallback={<Skeleton h={160} r={12} />}>
             <LazyDashboardDonutChart />
-          </Suspense> */}
+          </Suspense>
           <Suspense fallback={<Skeleton h={160} r={12} />}>
             <LazyDashboardLeaderboard />
           </Suspense>
