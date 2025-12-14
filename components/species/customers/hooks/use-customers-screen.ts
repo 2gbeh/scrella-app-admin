@@ -1,4 +1,4 @@
-import { UserDto } from "@/types/user";
+import { UserDto } from "@/types/user.type";
 import { Dispatch, SetStateAction, useEffect } from "react";
 
 const baseUrl = process.env.EXPO_PUBLIC_API_URL

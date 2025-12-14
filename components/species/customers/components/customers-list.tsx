@@ -6,7 +6,7 @@ import * as ListHeader from "@/components/molecules/list-builder/list-header";
 import { dateUtil } from "@/utils/date.util";
 import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
-import { UserDto } from "@/types/user";
+import { UserDto } from "@/types/user.type";
 import { COLORS } from "@/constants/COLORS";
 import { SIZES } from "@/constants/SIZES";
 

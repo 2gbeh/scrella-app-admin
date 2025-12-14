@@ -60,7 +60,7 @@ export function useDonutChart({ data, keys = {} }: DonutChartProps) {
     }
   }, [data, keys]);
 
-  const handleSelect = (item: ChartDataType, index: number) => {
+  const handleClick = (item: ChartDataType, index: number) => {
     setChartMetaData((prev) => ({ ...prev, index, maxValue: item.value }));
   };
 
@@ -68,6 +68,6 @@ export function useDonutChart({ data, keys = {} }: DonutChartProps) {
     chartData,
     selectedLabel,
     selectedValueRate,
-    handleSelect
+    handleClick
   }
 }

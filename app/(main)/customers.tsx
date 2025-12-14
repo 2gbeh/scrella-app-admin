@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Header } from "@/components/organisms/header";
 import { SearchBar } from "@/components/atoms/search-bar";
 import { useDebouncedSearch } from "@/hooks/use-debounced-search";
-import { UserDto } from "@/types/user";
+import { UserDto } from "@/types/user.type";
 import { COLORS } from "@/constants/COLORS";
 //
 import { CustomerList } from "@/components/species/customers/components/customers-list";
@@ -19,7 +19,7 @@ export default function CustomersScreen() {
     loading,
     setLoading,
   } = useDebouncedSearch<UserDto>();
-  useCustomersScreen({ debouncedText, setData, setLoading  });
+  useCustomersScreen({ debouncedText, setData, setLoading });
   //
   return (
     <View style={sx.container}>

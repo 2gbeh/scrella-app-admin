@@ -10,7 +10,7 @@ import { COLORS } from "@/constants/COLORS";
 import { DonutChartProps, useDonutChart } from "./hook";
 
 const DonutChart: React.FC<DonutChartProps> = ({ data, keys = {} }) => {
-  const { chartData, selectedLabel, selectedValueRate, handleSelect } =
+  const { chartData, selectedLabel, selectedValueRate, handleClick } =
     useDonutChart({
       data,
       keys,
@@ -32,7 +32,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, keys = {} }) => {
       <PieChart
         donut
         data={chartData}
-        onPress={handleSelect}
+        onPress={handleClick}
         // focusOnPress
         showGradient
         radius={90}
