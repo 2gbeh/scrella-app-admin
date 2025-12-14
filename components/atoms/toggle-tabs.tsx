@@ -60,7 +60,7 @@ const sx = StyleSheet.create({
     ...flexStyles.centerCenter,
   },
   label: {
-    color: COLORS.icon,
+    color: COLORS.muted,
     ...textStyles.bodyMedium,
   },
 });

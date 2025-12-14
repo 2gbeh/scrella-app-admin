@@ -24,7 +24,7 @@ export const DashboardKpiCards: React.FC = () => {
         <View style={sx.gridItem}>
           <KpiCard
             label={data.customers.name}
-            value={data.customers.total.toLocaleString()}
+            value={moneyFormat(data.customers.total, true)}
             icon="user-group"
             color={COLORS.statusBlue}
             loading={loading}
@@ -33,7 +33,7 @@ export const DashboardKpiCards: React.FC = () => {
         <View style={sx.gridItem}>
           <KpiCard
             label={data.devices.name}
-            value={data.devices.total.toLocaleString()}
+            value={moneyFormat(data.devices.total, true)}
             icon="computer"
             color={COLORS.statusYellow}
             loading={loading}
