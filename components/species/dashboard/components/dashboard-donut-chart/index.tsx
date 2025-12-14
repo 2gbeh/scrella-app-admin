@@ -5,7 +5,7 @@ import data from "./data.json";
 
 export const DashboardDonutChart = () => {
   return (
-    <Card title="Devices Insured">
+    <Card title="Devices Registered">
       <DonutChart
         data={data}
         keys={{

@@ -4,7 +4,7 @@ import data from "./data.json";
 
 export const DashboardColumnChart: React.FC = () => {
   return (
-    <Card title="Insured & Claims Analysis">
+    <Card title="Insurance & Claims">
       <ClusteredColumnChart data={data} />
     </Card>
   );

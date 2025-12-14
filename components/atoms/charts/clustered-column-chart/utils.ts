@@ -1,43 +1,21 @@
-import { barDataItem } from "react-native-gifted-charts";
 import { ChartLegendData } from "../chart-legend";
 import { COLORS } from "@/constants/COLORS";
 
-/**
- * @example
- // data
-{
-  "Jan": { "Revenue": 1600000, "Expense": 850000 },
-  "Feb": { "Revenue": 800000, "Expense": 550000 },
-    ...
- }
- // result
-[
-  {
-    value: 1600000,
-    label: "Jan",
-    frontColor: "teal",
-    labelWidth: 40,
-    spacing: 4,
-  },
-  { value: 850000, frontColor: "coral" },
-  {
-    value: 800000,
-    label: "Feb",
-    frontColor: "teal",
-    labelWidth: 40,
-    spacing: 4,
-  },
-  { value: 550000, frontColor: "coral" },
-  ...
-]
-*/
+type DataItemType = {
+  name: string;
+  value: number;
+};
 
-type KeyValueType = { label: string; color: string };
-
-type DataValueType = Record<string, number>;
+type ChartDataType = {
+  label?: string;
+  value: number;
+  frontColor: string;
+  labelWidth?: number;
+  spacing?: number;
+};
 
 export interface ClusteredColumnChartProps {
-  data: Record<string, DataValueType>;
+  data: Record<string, DataItemType[]>;
   keys?: ChartLegendData;
   labelWidth?: number;
   spacing?: number;
@@ -46,40 +24,29 @@ export interface ClusteredColumnChartProps {
 
 export function transform({
   data,
-  keys,
+  keys = {},
   labelWidth = 40,
   spacing = 4 }: ClusteredColumnChartProps) {
-  let maxValue = 1;
-  const transformed: barDataItem[] = [];
+  const transformed: ChartDataType[] = [];
+  let maxValue = 0;
 
-  Object.entries(data).map(([label, item]) => {
-    Object.entries(item).map(([key, value], i) => {
-      if (value > maxValue) maxValue = value
-      if (i < 1) {
-        const frontColor = colors[i] || COLORS.primary
-        // 
+  Object.entries(data).map(([label, list]) => {
+    list.map(({ name, value }, j) => {
+      if (value >= maxValue) maxValue = value
+      // 
+      if (j < 1) {
         transformed.push({
           value,
           label,
-          frontColor,
+          frontColor: keys[name] || COLORS.primary,
           labelWidth,
           spacing,
         });
-        // 
-        if (!transformedKeys[key]) {
-          transformedKeys[key] = { label: key, color: frontColor }
-        }
       } else {
-        const frontColor = colors[i] || COLORS.primaryContainer
-        // 
         transformed.push({
           value,
-          frontColor,
+          frontColor: keys[name] || COLORS.primaryContainer,
         });
-        // 
-        if (!transformedKeys[key]) {
-          transformedKeys[key] = { label: key, color: frontColor }
-        }
       }
     });
   });
@@ -90,6 +57,6 @@ export function transform({
   return {
     maxValue,
     maxValueSafe,
-    data: [...transformed, ...dataPadRight],
+    chartData: [...transformed, ...dataPadRight],
   }
 }

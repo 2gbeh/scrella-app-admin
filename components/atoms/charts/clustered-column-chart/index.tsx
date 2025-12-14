@@ -10,15 +10,15 @@ import { ClusteredColumnChartProps, transform } from "./utils";
 const screenWidth = Dimensions.get("window").width;
 
 const ClusteredColumnChart: React.FC<ClusteredColumnChartProps> = (props) => {
-  const { maxValueSafe, data, keys } = transform(props);
+  const { maxValueSafe, chartData } = transform(props);
   //
   return (
     <View style={sx.container}>
-      {props.hideKeys ? null : <ChartLegend data={keys} />}
+      {props.keys && !props.hideKeys ? <ChartLegend data={props.keys} /> : null}
       {/*  */}
       <View style={sx.content}>
         <BarChart
-          data={data}
+          data={chartData}
           maxValue={maxValueSafe}
           noOfSections={4}
           width={screenWidth}

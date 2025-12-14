@@ -1,50 +1,50 @@
 {
-  "Jan": {
-    "Insured": 40,
-    "Claims": 20
-  },
-  "Feb": {
-    "Insured": 50,
-    "Claims": 40
-  },
-  "Mar": {
-    "Insured": 75,
-    "Claims": 25
-  },
-  "Apr": {
-    "Insured": 30,
-    "Claims": 20
-  },
-  "May": {
-    "Insured": 60,
-    "Claims": 40
-  },
-  "Jun": {
-    "Insured": 65,
-    "Claims": 30
-  },
-  "Jul": {
-    "Insured": 55,
-    "Claims": 35
-  },
-  "Aug": {
-    "Insured": 70,
-    "Claims": 45
-  },
-  "Sep": {
-    "Insured": 48,
-    "Claims": 28
-  },
-  "Oct": {
-    "Insured": 62,
-    "Claims": 42
-  },
-  "Nov": {
-    "Insured": 58,
-    "Claims": 38
-  },
-  "Dec": {
-    "Insured": 72,
-    "Claims": 50
-  }
+  "Jan": [
+    { "name": "Insured", "value": 40 },
+    { "name": "Claims", "value": 20 }
+  ],
+  "Feb": [
+    { "name": "Insured", "value": 50 },
+    { "name": "Claims", "value": 40 }
+  ],
+  "Mar": [
+    { "name": "Insured", "value": 75 },
+    { "name": "Claims", "value": 25 }
+  ],
+  "Apr": [
+    { "name": "Insured", "value": 30 },
+    { "name": "Claims", "value": 20 }
+  ],
+  "May": [
+    { "name": "Insured", "value": 60 },
+    { "name": "Claims", "value": 40 }
+  ],
+  "Jun": [
+    { "name": "Insured", "value": 65 },
+    { "name": "Claims", "value": 30 }
+  ],
+  "Jul": [
+    { "name": "Insured", "value": 55 },
+    { "name": "Claims", "value": 35 }
+  ],
+  "Aug": [
+    { "name": "Insured", "value": 70 },
+    { "name": "Claims", "value": 45 }
+  ],
+  "Sep": [
+    { "name": "Insured", "value": 48 },
+    { "name": "Claims", "value": 28 }
+  ],
+  "Oct": [
+    { "name": "Insured", "value": 62 },
+    { "name": "Claims", "value": 42 }
+  ],
+  "Nov": [
+    { "name": "Insured", "value": 58 },
+    { "name": "Claims", "value": 38 }
+  ],
+  "Dec": [
+    { "name": "Insured", "value": 72 },
+    { "name": "Claims", "value": 50 }
+  ]
 }
