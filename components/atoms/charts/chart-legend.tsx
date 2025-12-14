@@ -3,16 +3,18 @@ import { flexStyles } from "@/styles/flex.style";
 import { textStyles } from "@/styles/text.style";
 import { COLORS } from "@/constants/COLORS";
 
+export type ChartLegendData = Record<string, string>;
+
 interface Props {
-  data?: { label: string; color?: string }[];
+  data: Record<string, string>;
 }
 
-export const ChartLegend: React.FC<Props> = ({ data = [] }) => (
+export const ChartLegend: React.FC<Props> = ({ data }) => (
   <View style={sx.container}>
-    {data.map((item, i) => (
+    {Object.entries(data).map(([label, color], i) => (
       <View key={i} style={sx.content}>
-        <View style={[sx.indicator, { backgroundColor: item.color }]} />
-        <Text style={sx.label}>{item.label}</Text>
+        <View style={[sx.indicator, { backgroundColor: color }]} />
+        <Text style={sx.label}>{label}</Text>
       </View>
     ))}
   </View>

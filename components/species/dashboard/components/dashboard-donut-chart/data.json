@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Desktop",
+    "value": 3
+  },
+  {
+    "name": "Laptop",
+    "value": 40
+  },
+  {
+    "name": "Tablet",
+    "value": 16
+  },
+  {
+    "name": "Mobile",
+    "value": 47
+  }
+]

@@ -1,50 +1,30 @@
 import { memo } from "react";
-import { View, Text, Dimensions, ColorValue } from "react-native";
-import { BarChart, barDataItem } from "react-native-gifted-charts";
+import { View, Dimensions, StyleSheet } from "react-native";
+import { BarChart } from "react-native-gifted-charts";
 //
 import { ChartLegend } from "../chart-legend";
 import { COLORS } from "@/constants/COLORS";
 //
-import { clusteredColumnChartStyles as sx } from "./styles.module";
-
-type DataType = {
-  value?: number;
-  label?: string;
-  frontColor?: ColorValue;
-  labelWidth?: 40;
-  spacing?: 4;
-};
-
-interface Props {
-  data?: barDataItem[];
-  keys?: { label: string; color?: string }[];
-}
+import { ClusteredColumnChartProps, transform } from "./utils";
 
 const screenWidth = Dimensions.get("window").width;
 
-const ClusteredColumnChart: React.FC<Props> = ({ data = [], keys = [] }) => {
+const ClusteredColumnChart: React.FC<ClusteredColumnChartProps> = (props) => {
+  const { maxValueSafe, data, keys } = transform(props);
+  //
   return (
     <View style={sx.container}>
-      {keys ? <ChartLegend data={keys} /> : null}
+      {props.hideKeys ? null : <ChartLegend data={keys} />}
       {/*  */}
       <View style={sx.content}>
-        <View>
-          {[100, 75, 50, 25, 0].map((val) => (
-            <Text key={val} style={sx.yAxisLabel}>
-              {val}
-              <Text style={sx.yAxisLabelRuler}>- -</Text>
-            </Text>
-          ))}
-        </View>
-        {/*  */}
         <BarChart
           data={data}
-          maxValue={100}
+          maxValue={maxValueSafe}
           noOfSections={4}
           width={screenWidth}
           barWidth={16}
           roundedTop
-          hideYAxisText
+          // hideYAxisText
           xAxisThickness={1}
           yAxisThickness={0}
           xAxisLabelTextStyle={{ color: COLORS.icon }}
@@ -58,3 +38,25 @@ const ClusteredColumnChart: React.FC<Props> = ({ data = [], keys = [] }) => {
 };
 
 export default memo(ClusteredColumnChart);
+
+const sx = StyleSheet.create({
+  __: {
+    borderWidth: 1,
+    borderColor: "red",
+  },
+  container: {
+    gap: 16,
+  },
+  content: {
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+  yAxisLabel: {
+    color: COLORS.icon,
+    height: 50,
+  },
+  yAxisLabelRuler: {
+    color: "#ddd",
+    paddingLeft: 8,
+  },
+});
