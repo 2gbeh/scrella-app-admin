@@ -11,8 +11,6 @@
     "scheme": "screllaappadmin",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "assetBundlePatterns": ["**/*"],
-    "jsEngine": "hermes",
     "ios": {
       "bundleIdentifier": "com.hwplabs.scrella",
       "supportsTablet": true,
