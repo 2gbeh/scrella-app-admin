@@ -4,7 +4,9 @@
 node_modules/
 
 # Expo
+.expo
 .expo/
+.expo/*
 dist/
 web-build/
 expo-env.d.ts
@@ -41,4 +43,5 @@ app-example
 # generated native folders
 /ios
 /android
+
 __ignore__
